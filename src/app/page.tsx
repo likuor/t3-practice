@@ -1,7 +1,7 @@
 import { unstable_noStore as noStore } from "next/cache";
 import Link from "next/link";
 
-// import { CreatePost } from "~/app/_components/create-post";
+import { CreatePost } from "~/app/_components/create-post";
 import { api } from "~/trpc/server";
 
 export default async function Home() {
@@ -30,6 +30,15 @@ export default async function Home() {
               </span>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/post"
+            className="rounded-md bg-[hsl(280,100%,70%)] px-6 py-4 font-medium"
+          >
+            Post
+          </Link>
         </div>
         {/* <div className="flex flex-col items-center gap-2">
           <p className="text-2xl text-white">

@@ -5,36 +5,26 @@ import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { api } from "~/trpc/server";
 
-const PostBlog = () => {
+const PostBlog = async () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
 
   // const [title, setTitle] = useState<string>("");
   // const [description, setDescription] = useState<string>("");
   // const allBlogs = api.example.getAllBlogs.useQuery();
-
-  // const postArticle = api.post.createArticle.useMutation({
-  //   onSuccess: () => {
-  //     router.refresh();
-  //     setName("");
-  //   },
-  // });
-
-  const router = useRouter();
+  // const allArticles = await api.post.getAllArticles.query();
+  // console.log(postArticle);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(titleRef.current?.value);
-    console.log(descriptionRef.current?.value);
-
-    // ここで `title` と `description` を使って blog を投稿する処理を追加してください。
 
     // if (titleRef.current && descriptionRef.current) {
-    //   postBlog.mutate({
-    //     title: titleRef.current.value,
-    //     description: descriptionRef.current.value,
-    //   });
+    //   postArticle.mutate();
     // }
+    // const postArticle = api.post.createArticle.mutate({
+    //   title: "test",
+    //   desciption: "test",
+    // });
 
     // console.log(titleRef.current?.value);
     // console.log(descriptionRef.current?.value);
@@ -65,7 +55,7 @@ const PostBlog = () => {
               id="title"
               type="text"
               placeholder="タイトルを入力"
-              ref={titleRef}
+              // ref={titleRef}
             />
           </div>
           <div className="mb-6">
@@ -79,7 +69,7 @@ const PostBlog = () => {
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
               id="description"
               placeholder="説明を入力"
-              ref={descriptionRef}
+              // ref={descriptionRef}
             />
           </div>
           <div className="flex items-center justify-between">
